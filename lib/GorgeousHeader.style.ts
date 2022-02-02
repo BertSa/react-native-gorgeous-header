@@ -1,7 +1,6 @@
 import { ViewStyle, ImageStyle, TextStyle, StyleSheet } from "react-native";
 
 interface Style {
-  container: ViewStyle;
   floatLeft: ViewStyle;
   floatRight: ViewStyle;
   titleTextStyle: TextStyle;
@@ -16,10 +15,6 @@ interface Style {
 }
 
 export default StyleSheet.create<Style>({
-  container: {
-    marginLeft: 24,
-    marginRight: 24,
-  },
   topBarContainer: {
     flexDirection: "row",
     alignItems: "center",

@@ -75,7 +75,7 @@ class GorgeousHeader extends React.Component<IProps, IState> {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         {this.renderTopBar()}
         {this.renderContent()}
       </View>
