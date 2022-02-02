@@ -6,19 +6,16 @@ import { Text, View, Image, TouchableOpacity, TextInput } from "react-native";
 import styles from "./GorgeousHeader.style";
 
 interface IProps {
-  menuImageStyle: any;
+  menuImageStyle?: any;
   menuImageSource: any;
   menuImageOnPress: () => void;
-  profileImageStyle: any;
+  profileImageStyle?: any;
   profileImageSource: any;
   profileImageOnPress: () => void;
-  title: string;
-  subtitle: string;
-  searchImageSource: any;
-  titleTextStyle: any;
-  searchBarStyle: any;
-  searchInputStyle: any;
-  subtitleTextStyle: any;
+  title?: string;
+  subtitle?: string;
+  titleTextStyle?: any;
+  subtitleTextStyle?: any;
 }
 
 interface IState {}
@@ -58,26 +55,20 @@ class GorgeousHeader extends React.Component<IProps, IState> {
     const {
       title = "Order",
       subtitle = "Healthy food can keep you fit.",
-      searchImageSource,
       titleTextStyle,
-      searchBarStyle,
-      searchInputStyle,
       subtitleTextStyle,
     } = this.props;
+
+    if (!title){
+      return null;
+    }
+
     return (
       <View style={styles.contentContainer}>
         <Text style={titleTextStyle || styles.titleTextStyle}>{title}</Text>
-        <Text style={subtitleTextStyle || styles.subtitleTextStyle}>
+        {subtitle && <Text style={subtitleTextStyle || styles.subtitleTextStyle}>
           {subtitle}
-        </Text>
-        <View style={searchBarStyle || styles.searchBarStyle}>
-          <Image style={styles.searchImageStyle} source={searchImageSource} />
-          <TextInput
-            style={searchInputStyle || styles.searchInputStyle}
-            placeholder="Search something"
-            {...this.props}
-          />
-        </View>
+        </Text>}
       </View>
     );
   };
